@@ -1,0 +1,301 @@
+$white: #fff2e2;
+$orange: #dc3d19;
+$green: #193425;
+$yellow: #f7ba54;
+$pink: #f4b19f;
+
+body {
+  background: $green;
+  color: $white;
+  margin: 0 auto;
+}
+
+// fonts ________________________________________________________________________
+
+h1 {
+  font-family: "Swear Display", serif;
+  font-size: 65px;
+  text-align: center;
+  font-weight: 600;
+  margin: 0;
+
+  @media only screen and (max-width: 900px) {
+    font-size: 30px;
+  }
+}
+
+h2 {
+  font-family: "Syne";
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #ad7d57;
+  @media only screen and (max-width: 900px) {
+    font-size: 14px;
+  }
+}
+
+h3 {
+  font-family: "Swear Display", serif;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 600;
+  margin: 0;
+  @media only screen and (max-width: 900px) {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+}
+
+// content wrapper ________________________________________________________________________
+
+.wrapper {
+  width: 1400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 90%;
+  @media only screen and (max-width: 900px) {
+    width: 100vw;
+  }
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+// score ________________________________________________________________________
+
+.scoreboard {
+  text-align: center;
+  height: 80px;
+  width: 200px;
+  background: $green;
+  box-shadow: inset 6px 6px 6px #0c1912, inset -6px -6px 6px #264f38;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-family: "Syne";
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-align: center;
+  font-size: 40px;
+  color: $white;
+  margin-top: 50px;
+  @media only screen and (max-width: 900px) {
+    height: 40px;
+    width: 100px;
+    font-size: 16px;
+    margin-top: 24px;
+  }
+}
+
+.action-message {
+  font-size: 34px;
+  height: 300px;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media only screen and (max-width: 900px) {
+    order: 3;
+    width: 100%;
+    font-size: 26px;
+    height: fit-content;
+    margin-top: 0px;
+  }
+}
+
+#action-message {
+  text-align: center;
+}
+
+// game container ________________________________________________________________________
+
+.result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 70px 0;
+
+  @media only screen and (max-width: 900px) {
+    margin: 0px;
+    width: 90vw;
+    flex-wrap: wrap;
+  }
+
+  .game-container-content {
+    height: 300px;
+    width: 300px;
+    position: relative;
+    @media only screen and (max-width: 900px) {
+      height: 120px;
+      width: 120px;
+      margin-bottom: 50px;
+    }
+  }
+
+  .shape {
+    height: 100%;
+    width: 100%;
+    background: $yellow;
+  }
+
+  .player-name {
+    @extend h2;
+    text-transform: uppercase;
+    text-align: left;
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+.player-image {
+  background-image: url("https://assets.codepen.io/10852085/rock-left.png");
+}
+
+.opponent {
+  text-align: right !important;
+}
+
+.computer-image {
+  background-image: url("https://assets.codepen.io/10852085/rock-right.png");
+}
+
+.user-rock {
+  background-image: url("https://assets.codepen.io/10852085/rock-left.png");
+}
+
+.user-scissors {
+  background-image: url("https://assets.codepen.io/10852085/scissors-left.png");
+}
+
+.user-paper {
+  background-image: url("https://assets.codepen.io/10852085/paper-left.png");
+}
+
+.computer-rock {
+  background-image: url("https://assets.codepen.io/10852085/rock-right.png");
+}
+
+.computer-paper {
+  background-image: url("https://assets.codepen.io/10852085/paper-right.png");
+}
+
+.computer-scissors {
+  background-image: url("https://assets.codepen.io/10852085/scissors-right.png");
+}
+
+#player-image {
+  height: 450px;
+  width: 450px;
+  position: absolute;
+  background-size: cover;
+  top: 50%;
+  left: 50%;
+  transform: translate(-20%, -50%);
+  @media only screen and (max-width: 900px) {
+    height: 200px;
+    width: 200px;
+    top: 50%;
+    left: 35%;
+  }
+}
+
+#computer-image {
+  height: 450px;
+  width: 450px;
+  position: absolute;
+  background-size: cover;
+  top: 50%;
+  right: 50%;
+  transform: translate(20%, -50%);
+  @media only screen and (max-width: 900px) {
+    height: 200px;
+    width: 200px;
+    top: 50%;
+    right: 35%;
+  }
+}
+
+.circle {
+  border-radius: 100%;
+}
+
+.triangle {
+  clip-path: polygon(100% 50%, 0 0, 0 100%);
+}
+
+// choices
+
+.choices {
+  display: flex;
+  height: 200px;
+  gap: 50px;
+  @media only screen and (max-width: 900px) {
+    gap: 0px;
+    height: fit-content;
+  }
+}
+.choice {
+  height: 150px;
+  width: 150px;
+  position: relative;
+  cursor: grab;
+  img {
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+
+    @media only screen and (max-width: 900px) {
+      gap: 0px;
+      height: 60%;
+      width: 60%;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+@media only screen and (min-width: 901px) {
+  .choice:hover {
+    transform: scale(1.2);
+  }
+}
+
+.choice-shape {
+  height: 100px;
+  width: 100px;
+  background: $pink;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @media only screen and (max-width: 900px) {
+    height: 50px;
+    width: 50px;
+  }
+
+  &__circle {
+    @extend .choice-shape;
+    @extend .circle;
+  }
+
+  &__triangle {
+    @extend .choice-shape;
+    clip-path: polygon(0 0, 100% 0%, 50% 100%);
+  }
+}

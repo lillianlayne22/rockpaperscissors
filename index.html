@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/rps.css">
+    <title>Rock, Paper, Scissors</title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="section">
+        <h1>Lapis, Papyrus, Scalpellus</h1>
+        <h2>rock, paper, scissors</h2>
+      
+
+        <div class="scoreboard">
+            <span id="user-score">0</span>:<span id="computer-score">0</span>
+        </div>
+
+        </div>
+       
+        <div class="result">
+            <div id="player-choice" class="game-container-content left">
+                <div class="shape" id="shape" style="background-color: #f7ba54;"></div>
+                <div class="player-image" id="player-image"></div>
+                <div class="player-name">player 1</div>
+            </div>
+            <div class="action-message"  id="action-message">Let's Play!</div>
+            <div id="computer-choice" class="game-container-content right">
+                <div class="shape" id="shape-computer"></div>
+                <div class="computer-image" id="computer-image"></div>
+                <div class="player-name opponent">opponent</div>
+            </div>
+        </div>
+<div class="section">
+        <div class="choices">
+            <div class="choice">
+                <div class="choice-shape__circle"></div>
+                <img src="/rock.png" alt="" id="r">
+            </div>
+            <div class="choice">
+                <div class="choice-shape"></div>
+                <img src="/paper.png" alt="" id="p">
+            </div>
+            <div class="choice">
+                <div class="choice-shape__triangle"></div>
+                <img src="/scissors.png" alt="" id="s">
+            </div>
+        </div>
+
+        <h3>
+            choose your fighter
+        </h3>
+    </div>
+    </div>
+
+
+    </div>
+
+    <script src="/rps.js"></script>
+</body>
+
+</html>
