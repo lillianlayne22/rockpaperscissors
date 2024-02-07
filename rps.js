@@ -18,8 +18,14 @@ const colorWhite = "#fff2e2";
 function getComputerChoice() {
   const choices = ["r", "p", "s"];
   const randomNumber = Math.floor(Math.random() * 3);
-  return choices[randomNumber];
+  const computerChoice = choices[randomNumber];
+  console.log("computer: " + computerChoice);
+  return computerChoice;
 }
+
+
+
+
 
 function resultMessage() {
   setTimeout(() => {
@@ -37,45 +43,54 @@ function resultMessage() {
   }, 150);
 }
 
-function userImageChange(userChoice) {
+function userImageChange(userChoice, computerChoice) {
   if (userChoice === "r") {
     userChoice_image.classList.replace("player-image", "user-rock");
   }
   if (userChoice === "p") {
     userChoice_image.classList.replace("player-image", "user-paper");
-  } else {
+  } 
+  if (userChoice === "s") {
     userChoice_image.classList.replace("player-image", "user-scissors");
   }
+  
 }
 
 function computerImageChange(computerChoice) {
-    getComputerChoice();
+  
   if (computerChoice === "r") {
     userChoice_image.classList.replace("computer-image", "computer-rock");
   }
   if (computerChoice === "p") {
     userChoice_image.classList.replace("computer-image", "computer-paper");
-  } else {
-    computerChoice_image.classList.replace("computer-image","computer-scissors");
+  } 
+  if (computerChoice === "s") {
+    computerChoice_image.classList.replace("computer-image", "computer-scissors");
   }
 }
 
+
+
 function reset() {
-    userShape_div.style.background = colorYellow;
-    computerShape_div.style.background = colorYellow;
-    result_p.innerHTML = `Choose a fighter to play again.`;
-    userChoice_image.classList.remove("user-rock", "user-paper", "user-scissors");
-    userChoice_image.classList.add("player-image");
-    computerChoice_image.classList.remove("computer-rock", "computer-paper", "computer-scissors");
-    computerChoice_image.classList.add("computer-image");
-    result_p.style.color = colorWhite;
+  userShape_div.style.background = colorYellow;
+  computerShape_div.style.background = colorYellow;
+  result_p.innerHTML = `Choose a fighter to play again.`;
+  userChoice_image.classList.remove("user-rock", "user-paper", "user-scissors");
+  userChoice_image.classList.add("player-image");
+  computerChoice_image.classList.remove(
+    "computer-rock",
+    "computer-paper",
+    "computer-scissors"
+  );
+  computerChoice_image.classList.add("computer-image");
+  result_p.style.color = colorWhite;
 }
 
 function userWin(userChoice, computerChoice) {
   userScore++;
   userScore_span.innerHTML = userScore;
   userShape_div.style.background = colorRed;
-  result_p.innerHTML = `You win!`; 
+  result_p.innerHTML = `You win!`;
   computerImageChange(computerChoice);
   userImageChange(userChoice);
   setTimeout(function () {
@@ -84,8 +99,8 @@ function userWin(userChoice, computerChoice) {
 }
 
 function userLost(userChoice, computerChoice) {
-    computerImageChange(computerChoice);
-    userImageChange(userChoice);
+  computerImageChange(computerChoice);
+  userImageChange(userChoice);
   computerScore++;
   computerScore_span.innerHTML = computerScore;
   computerShape_div.style.background = colorRed;
@@ -96,38 +111,41 @@ function userLost(userChoice, computerChoice) {
 }
 
 function draw(userChoice, computerChoice) {
-    computerImageChange(computerChoice);
-    userImageChange(userChoice);
+  computerImageChange(computerChoice);
+  userImageChange(userChoice);
   userScore_span.innerHTML = userScore;
   computerScore_span.innerHTMl = computerScore;
   result_p.innerHTML = `It's a draw!`;
   setTimeout(function () {
     reset();
-   
   }, 2000);
 }
 
 function gameResults(userChoice) {
   const computerChoice = getComputerChoice();
+  
   switch (userChoice + computerChoice) {
     case "rs":
     case "pr":
     case "sp":
       userWin(userChoice, computerChoice);
-      console.log("wins");
-      
+      console.log("user wins");
+      console.log("user: " + userChoice);;
+
       break;
     case "rp":
     case "ps":
     case "sr":
       userLost(userChoice, computerChoice);
-      console.log("lost");
+      console.log("user lost");
+      console.log("user: " + userChoice);
       break;
     case "rr":
     case "pp":
     case "ss":
       draw(userChoice, computerChoice);
       console.log("draw");
+      console.log("user: " + userChoice);
       break;
   }
 }
