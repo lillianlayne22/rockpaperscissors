@@ -20,7 +20,7 @@ function getComputerChoice() {
   const randomNumber = Math.floor(Math.random() * 3);
   const computerChoice = choices[randomNumber];
   console.log("computer: " + computerChoice);
-  return computerChoice;
+  return computerChoice; 
 }
 
 
